@@ -1,6 +1,5 @@
 package com.Dimes;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -22,27 +21,16 @@ public class DimesApplication {
 	}
 
 	@Bean
-	public Docket  swaggerConfiguration()
-	{
-		return  new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.paths(PathSelectors.ant("/api/**"))
-				.apis(RequestHandlerSelectors.basePackage("com.Dimes"))
-				.build()
-				.apiInfo(apiInfo());
+	public Docket swaggerConfiguration() {
+		return new Docket(DocumentationType.SWAGGER_2).select().paths(PathSelectors.ant("/api/**"))
+				.apis(RequestHandlerSelectors.basePackage("com.Dimes")).build().apiInfo(apiInfo());
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfo(
-				"MONEY LENDER API",
-				"Rest API for money lender whose client is a react app",
-				"1.0",
+		return new ApiInfo("MONEY LENDER API", "Rest API for money lender whose client is a react app", "1.0",
 				"Coming up...",
-				 new springfox.documentation.service.Contact("Nehemiah","www.technehe.com","kamolunehemiah@gmail.com"),
-				"No license",
-				"Coming up..",
-				Collections.emptyList());
+				new springfox.documentation.service.Contact("Nehemiah", "www.technehe.com", "kamolunehemiah@gmail.com"),
+				"No license", "Coming up..", Collections.emptyList());
 	}
-
 
 }

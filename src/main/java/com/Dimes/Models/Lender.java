@@ -12,13 +12,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Register")
 public class Lender {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String companyName;
     private double initialCapital;
     private double interestRate;
+    private double totalInterest;
     private String email;
     private String username;
     private String password;
@@ -27,11 +28,13 @@ public class Lender {
     public Lender() {
     }
 
-    public Lender(int id,String companyName, double initialCapital, double interestRate, String email, String username, String password, String role) {
+    public Lender(int id, String companyName, double initialCapital, double interestRate, double totalInterest,
+            String email, String username, String password, String role) {
         this.id = id;
         this.companyName = companyName;
         this.initialCapital = initialCapital;
         this.interestRate = interestRate;
+        this.totalInterest = totalInterest; // lebon added this
         this.email = email;
         this.username = username;
         this.password = password;
@@ -70,6 +73,14 @@ public class Lender {
         this.interestRate = interestRate;
     }
 
+    public double getTotalInterest() {
+        return totalInterest;
+    }
+
+    public void setTotalInterest(double totalInterest) {
+        this.totalInterest = totalInterest;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -101,4 +112,5 @@ public class Lender {
     public void setRole(String role) {
         this.role = role;
     }
+
 }

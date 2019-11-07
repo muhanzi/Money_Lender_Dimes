@@ -43,7 +43,7 @@ public class AuthControllerTests extends JsonManager {
     @MockBean
     private AuthService authService;
 
-    private Lender lender = new Lender(1,"charles company",1000.0,2.3,"nehe@gmail.com","Nehe","12345678","Admin");
+    private Lender lender = new Lender(1,"charles company",1000.0,2.3,50.0,"nehe@gmail.com","Nehe","12345678","Admin");
 
     @Test
     void saveLenderTest() throws  Exception

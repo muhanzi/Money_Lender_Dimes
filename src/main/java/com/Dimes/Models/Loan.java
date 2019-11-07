@@ -1,6 +1,5 @@
 package com.Dimes.Models;
 
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,7 +10,7 @@ public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String borrowerName; //borrower's name
+    private String borrowerName; // borrower's name
     private String phoneNumber;
     private String nationalIdNumber;
     private double loanAmount;
@@ -22,14 +21,14 @@ public class Loan {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "lenderId")
+    @JoinColumn(name = "lender")
     private Lender lender;
 
+    public Loan() {
+    }
 
-    public Loan() {}
-
-
-    public Loan(String borrowerName, String phoneNumber, String nationalIdNumber, double loanAmount, String periodType, int loanPeriod, double deposit, Date date_issued, String status, int lenderId) {
+    public Loan(String borrowerName, String phoneNumber, String nationalIdNumber, double loanAmount, String periodType,
+            int loanPeriod, double deposit, Date date_issued, String status, int lender) {
         this.borrowerName = borrowerName;
         this.phoneNumber = phoneNumber;
         this.nationalIdNumber = nationalIdNumber;
@@ -39,7 +38,7 @@ public class Loan {
         this.deposit = deposit;
         this.date_issued = date_issued;
         this.status = status;
-        this.lender =new  Lender(0,"",0.0,0.0,"","","","");
+        this.lender = new Lender(0, "", 0.0, 0.0, 0.0, "", "", "", "");
     }
 
     public Date getDate_issued() {
@@ -47,7 +46,7 @@ public class Loan {
     }
 
     public void setDate_issued(Date date_issued) {
-        this.date_issued = new Date();
+        this.date_issued = date_issued; // lebon changed this
     }
 
     public String getStatus() {
@@ -58,11 +57,11 @@ public class Loan {
         this.status = status;
     }
 
-    public Lender getLenderId() {
+    public Lender getLender() {
         return lender;
     }
 
-    public void setLenderId(Lender lenderId) {
+    public void setLender(Lender lenderId) {
         this.lender = lenderId;
     }
 
